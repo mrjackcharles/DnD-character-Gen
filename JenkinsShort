@@ -8,7 +8,7 @@ pipeline {
     agent any
     stages {
         stage('Cloning our Git') {
-            steps {
+                steps {
                 git branch main
                 git 'https://github.com/mrjackcharles/dnd-character-gen.git'
             }
