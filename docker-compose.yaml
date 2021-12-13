@@ -1,5 +1,7 @@
+
 version: "3.7"
-services: "3.3"
+services:
+
     frontend:
         build: ./frontend
         container_name: application
@@ -7,6 +9,7 @@ services: "3.3"
         - target: 5000
         published: 5000
         protocol: tcp
+        
     service1:
         build: ./service1
         container_name: service1
@@ -14,6 +17,7 @@ services: "3.3"
         - target: 5001
         published: 5001
         protocol: tcp
+        
     service2:    
         build: ./service2
         container_name: service2
@@ -21,6 +25,7 @@ services: "3.3"
         - target: 5002
         published: 5002
         protocol: tcp
+        
     backend:
         build: ./backend
         container_name: backend
@@ -28,6 +33,7 @@ services: "3.3"
         - target: 5003
         published: 5003
         protocol: tcp
+        
     nginx:
         image: nginx:latest
         container_name: DnDnginx
@@ -35,10 +41,12 @@ services: "3.3"
         - target: 80
         published: 80
         protocol: tcp
+        
     volumes:
         - type: bind
         source: ./nginx/nginx.conf
         target: /etc/nginx/nginx.conf
+        
     mysql:
         image: mysql:5.7
         build: ./frontend/db
