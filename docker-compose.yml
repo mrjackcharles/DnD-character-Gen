@@ -29,12 +29,13 @@ services:
     nginx:
       image: nginx:latest
       container_name: DnDnginx
+      ports:
+      - "80:80"
+      
       volumes:
         - type: bind
-        source: ./nginx/nginx.conf
-        target: /etc/nginx/nginx.conf
-        ports:
-          - "80:80"
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
         
 
     mysql:
