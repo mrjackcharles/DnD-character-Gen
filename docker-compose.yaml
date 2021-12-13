@@ -1,5 +1,5 @@
 version: "3.7"
-services:
+services: "2.2"
 
   frontend:
     build: ./frontend
