@@ -9,13 +9,15 @@ pipeline {
     stages {
         stage('Cloning our Git') {
             steps {
-                git 'https://github.com/mrjackcharles/dnd-character-gen.git'
+                git branch main,
+                url 'https://github.com/mrjackcharles/dnd-character-gen.git'
             }
         }
 
     stage('Building our image') {
         steps{
             script {
+                
                 dockerImage = git clone 'https://github.com/mrjackcharles/dnd-character-gen.git'
                 sh cd dnd-character-gen
                 sh docker-compose up
@@ -23,4 +25,4 @@ pipeline {
             }
         }
     }
-}      
+}
