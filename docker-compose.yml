@@ -6,9 +6,7 @@ services:
       build: ./frontend
       container_name: application
       ports:
-        - target: '5000'
-        published: '5000'
-        protocol: tcp
+        - "5000:5000"
 
     service1:
       build: ./service1
