@@ -1,49 +1,54 @@
 
 version: "3.3"
-
 services:
+
     frontend:
-        build: ./frontend
-        container_name: application
-        ports:
+      build: ./frontend
+      container_name: application
+      ports:
         - target: 5000
         published: 5000
         protocol: tcp
+        
     service1:
-        build: ./service1
-        container_name: service1
-        ports:
+      build: ./service1
+      container_name: service1
+      ports:
         - target: 5001
         published: 5001
         protocol: tcp
+        
     service2:    
-        build: ./service2
-        container_name: service2
-        ports:
+      build: ./service2
+      container_name: service2
+      ports:
         - target: 5002
         published: 5002
         protocol: tcp 
+        
     backend:
-        build: ./backend
-        container_name: backend
-        ports:
+      build: ./backend
+      container_name: backend
+      ports:
         - target: 5003
         published: 5003
         protocol: tcp
+        
     nginx:
-        image: nginx:latest
-        container_name: DnDnginx
-        ports:
+      image: nginx:latest
+      container_name: DnDnginx
+      ports:
         - target: 80
         published: 80
         protocol: tcp
         volumes:
-        - type: bind
-        source: ./nginx/nginx.conf
-        target: /etc/nginx/nginx.conf
+          - type: bind
+          source: ./nginx/nginx.conf
+          target: /etc/nginx/nginx.conf
+          
     mysql:
-        image: mysql:5.7
-        build: ./frontend/db
-        container_name: mysql
+      image: mysql:5.7
+      build: ./frontend/db
+      container_name: mysql
 
 
