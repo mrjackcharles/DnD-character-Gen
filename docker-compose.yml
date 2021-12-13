@@ -1,13 +1,13 @@
 version: "3.9"
-services: "3.3"
+    services: "3.3"
 
     frontend:
-        build: ./frontend
-        container_name: application
-        ports:
-        - target: 5000
-        published: 5000
-        protocol: tcp
+            build: ./frontend
+                container_name: application
+                             ports:
+                             - target: 5000
+                                published: 5000
+                                    protocol: tcp
         
     service1:
         build: ./service1
