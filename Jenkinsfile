@@ -7,7 +7,7 @@ node {
   
       stage('Build image') {         
        
-            app = docker.build("mrjackcharles/DnD-character-Gen")    
+            app = docker.build("mrjackcharles/dnd-character-Gen")    
        }          
     
       stage('Test image') {
