@@ -31,6 +31,7 @@ services:
       container_name: DnDnginx
       ports:
         - "80:80"
+        
         volumes:
           - type: bind
           source: ./nginx/nginx.conf
