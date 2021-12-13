@@ -12,31 +12,25 @@ services:
       build: ./service1
       container_name: service1
       ports:
-        - "5000:5000"
+        - "5001:5001"
 
     service2:    
       build: ./service2
       container_name: service2
       ports:
-        - target: '5002'
-        published: 5002
-        protocol: tcp 
+        - "5002:5002"
 
     backend:
       build: ./backend
       container_name: backend
       ports:
-        - target: '5003'
-        published: 5003
-        protocol: tcp
+        - "5003:5003"
 
     nginx:
       image: nginx:latest
       container_name: DnDnginx
       ports:
-        - target: '80'
-        published: 80
-        protocol: tcp
+        - "80:80"
         volumes:
           - type: bind
           source: ./nginx/nginx.conf
