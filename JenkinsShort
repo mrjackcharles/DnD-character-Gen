@@ -16,7 +16,7 @@ pipeline {
     stage('Building our image') {
         steps{
             script {
-                dockerImage = git clone https://github.com/mrjackcharles/dnd-character-gen.git
+                dockerImage = git clone 'https://github.com/mrjackcharles/dnd-character-gen.git'
                 sh cd dnd-character-gen
                 sh docker-compose up
                 }
