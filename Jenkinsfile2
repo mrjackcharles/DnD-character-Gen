@@ -3,30 +3,22 @@ pipeline {
         registry = "jackcharles13/dndproject"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
-    }
+        }
+
     agent any
     stages {
-        stage('Cloning Repo') {
+        stage('Cloning our Git') {
             steps {
-                echo 'Cloning....'
-                git 'https://github.com/mrjackcharles/dnd-character-gen.git'  
+                git 'https://github.com/mrjackcharles/dnd-character-gen.git'
             }
         }
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sh 'docker compose up'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+
+    stage('Building our image') {
+        steps{
+            script {
+                dockerImage = docker compose up
+                }
             }
         }
     }
-}
+}       
