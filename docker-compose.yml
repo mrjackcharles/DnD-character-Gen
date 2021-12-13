@@ -6,7 +6,7 @@ services:
       build: ./frontend
       container_name: application
       ports:
-        - target: 5000
+        - target: '5000'
         published: 5000
         protocol: tcp
         
@@ -14,7 +14,7 @@ services:
       build: ./service1
       container_name: service1
       ports:
-        - target: 5001
+        - target: '5001'
         published: 5001
         protocol: tcp
         
@@ -22,7 +22,7 @@ services:
       build: ./service2
       container_name: service2
       ports:
-        - target: 5002
+        - target: '5002'
         published: 5002
         protocol: tcp 
         
@@ -30,7 +30,7 @@ services:
       build: ./backend
       container_name: backend
       ports:
-        - target: 5003
+        - target: '5003'
         published: 5003
         protocol: tcp
         
@@ -38,7 +38,7 @@ services:
       image: nginx:latest
       container_name: DnDnginx
       ports:
-        - target: 80
+        - target: '80'
         published: 80
         protocol: tcp
         volumes:
