@@ -22,7 +22,8 @@ pipeline {
 
     stage('Deploy our image') {
         steps{
-             sh 'docker push dnd-pipeline_frontend:latest'
+             sh 'docker login --username=jackcharles13 --email=jack-charles-8@hotmail.com'
+             sh 'docker push jackcharles13/dnd-pipeline_frontend:latest'
                 }
            }
       }
