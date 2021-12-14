@@ -22,7 +22,7 @@ pipeline {
 
     stage('Deploy our image') {
         steps{
-             sh 'docker push -a dndproject'
+             sh 'docker push dnd-pipeline_frontend:latest'
                 }
            }
       }
