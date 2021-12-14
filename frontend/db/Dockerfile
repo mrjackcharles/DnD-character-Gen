@@ -6,9 +6,9 @@ FROM mysql:5.7
 
 # Add a database and root password
 
-ENV MYSQL_PWD= Admin00#
+ENV MYSQL_ROOT_PASSWORD = Admin00#
 
-ENV MYSQL_DB= jacksdbs
+ENV MYSQL_DB=jacksdbs
 
 # Add the content of the .sql file to your image
 
