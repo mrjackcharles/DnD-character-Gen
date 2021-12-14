@@ -24,7 +24,7 @@ pipeline {
     stage('Deploy our image') {
         steps{
              sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-             sh 'docker push dnd-pipeline_frontend:latest'
+             sh 'docker push 3bbc25d3bc2d'
                 }
            }
       }
