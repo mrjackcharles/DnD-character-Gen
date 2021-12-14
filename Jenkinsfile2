@@ -25,6 +25,10 @@ pipeline {
         steps{
              sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
              sh 'docker push jackcharles13/dndproject:frontend'
+             sh 'docker push jackcharles13/dndproject:service1'
+             sh 'docker push jackcharles13/dndproject:service2'
+             sh 'docker push jackcharles13/dndproject:backend'
+             sh 'docker push jackcharles13/dndproject:mysql'
                 }
            }
       }
