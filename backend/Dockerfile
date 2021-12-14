@@ -2,6 +2,8 @@
 FROM python:3.7
 # Copy contents into image
 WORKDIR /dcbackend
+# Copying files to new directory
+COPY . .
 # install pip dependencies from requirements file
 RUN pip install -r "requirements.txt"
 # Expose correct port
