@@ -20,13 +20,18 @@ pipeline {
                 }
            }
 
-    stage('Deploy")
+    stage('Deploy our image') {
+        steps{
+            script {
+                docker.withRegistory('https://hub.docker.com/repository/docker/jackcharles13/dndproject', 'dockerhub_id') {
+                
+                    def customImage = docker.build("my-image:${env.BUILD_ID}")
+                    
+                    customImage.push()
+                    }
+                }
+            }
+        }
 
-    docker.withRegistry('https://registry.example.com', 'credentials-id') {
-
-        def customImage = docker.build("my-image:${env.BUILD_ID}")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
     }
 }
