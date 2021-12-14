@@ -3,6 +3,7 @@ pipeline {
         registry = "jackcharles13/dndproject"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub_id')
         }
 
     agent any
@@ -22,7 +23,7 @@ pipeline {
 
     stage('Deploy our image') {
         steps{
-             sh 'docker login --username=jackcharles13 --email=jack-charles-8@hotmail.com'
+             sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
              sh 'docker push jackcharles13/dnd-pipeline_frontend:latest'
                 }
            }
