@@ -23,7 +23,7 @@ pipeline {
     stage('Deploy our image') {
         steps{
             script {
-                    dockerImage.push()
+                    docker push jackcharles13/dndproject:tagname
                     }
                 }
            }
