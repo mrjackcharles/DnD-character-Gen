@@ -7,7 +7,7 @@ RUN pip install -r "requirements.txt"
 # Set environment variables
 ENV MYSQL_USER "jackc"
 ENV MYSQL_PWD "Admin00#"
-ENV MYSQL_IP "80.1.30.76"
+ENV MYSQL_IP "jacksdbs.mysql.database.azure.com"
 ENV MYSQL_DB "jacksdbs"
 ENV MYSQL_SK "sofdnbshelvosgul"
 
