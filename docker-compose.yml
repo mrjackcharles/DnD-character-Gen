@@ -26,19 +26,6 @@ services:
       ports:
         - "5003:5003"
 
-    nginx:
-      image: nginx:latest
-      container_name: nginx
-      ports:
-      - target: 80
-        published: 80
-        protocol: tcp
-      volumes:
-      - type: bind
-        source: ./nginx/nginx.conf
-        target: /etc/nginx/nginx.conf
-        
-
     mysql:
       image: mysql:5.7
       build: ./frontend/db
