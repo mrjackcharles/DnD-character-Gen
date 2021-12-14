@@ -3,7 +3,6 @@ pipeline {
         registry = "jackcharles13/dndproject"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
-        DOCKER_HOST = '20.124.14.196:2376'
         }
 
     agent any
