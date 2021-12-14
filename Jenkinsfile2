@@ -22,7 +22,7 @@ pipeline {
 
     stage('Deploy our image') {
         steps{
-             sh 'docker push a- jackcharles13/dndproject'
+             sh 'docker push -a dndproject'
                 }
            }
       }
