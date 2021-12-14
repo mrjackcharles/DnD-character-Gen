@@ -23,7 +23,7 @@ pipeline {
     stage('Deploy our image') {
         steps{
             script {
-                docker.withRegistory('https://hub.docker.com/repository/docker/jackcharles13/dndproject', 'dockerhub_id') {
+                docker.withRegistory('jackcharles13/dndproject:tagname', 'dockerhub_id') {
                 
                     def customImage = docker.build("my-image:${env.BUILD_ID}")
                     
