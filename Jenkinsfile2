@@ -16,7 +16,7 @@ pipeline {
 
     stage('Building our image') {
         steps{
-            sh 'docker-compose up --project-name dndproject'
+            sh 'docker-compose up --project-name dndproject --force-recreate'
                 }
            }
 
