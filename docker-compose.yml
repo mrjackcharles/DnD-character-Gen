@@ -3,31 +3,35 @@ version: "3.3"
 services:
 
     frontend:
+      image: jackcharles13/dndproject:frontend
       build: ./frontend
       container_name: application
       ports:
         - "5000:5000"
 
     service1:
+      image: jackcharles13/dndproject:service1
       build: ./service1
       container_name: service1
       ports:
         - "5001:5001"
 
-    service2:    
+    service2:
+      image: jackcharles13/dndproject:service2    
       build: ./service2
       container_name: service2
       ports:
         - "5002:5002"
 
     backend:
+      image: jackcharles13/dndproject:backend
       build: ./backend
       container_name: backend
       ports:
         - "5003:5003"
 
     mysql:
-      image: mysql:5.7
+      image: jackcharles13/dndproject:mysql
       build: ./frontend/db
       container_name: mysql
 
