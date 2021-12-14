@@ -2,6 +2,8 @@
 FROM python:3.7
 # Copy contents into image
 WORKDIR /dcfrontend
+# Copying files to new directory
+COPY . .
 # install pip dependencies from requirements file
 RUN pip install -r "requirements.txt"
 # Set environment variables
