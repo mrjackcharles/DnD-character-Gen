@@ -19,5 +19,16 @@ pipeline {
             sh 'docker-compose up -d'
                 }
            }
-      }
-}       
+
+    stage('Deploy our image') {
+        steps{
+            script {
+                docker.withRegistory( '', registoryCredential ) {
+                    dockerImage.push()
+                    }
+                }
+            }
+        }
+
+    }
+}
