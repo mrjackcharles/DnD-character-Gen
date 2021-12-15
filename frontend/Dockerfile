@@ -7,7 +7,7 @@ COPY . .
 # install pip dependencies from requirements file
 RUN pip install -r "requirements.txt"
 # Set environment variables
-ENV MYSQL_USER "jackc"
+ENV MYSQL_USER "jackc@jacksdbs"
 ENV MYSQL_PWD "Admin00#"
 ENV MYSQL_IP "jacksdbs.mysql.database.azure.com"
 ENV MYSQL_DB "jacksdbs"
