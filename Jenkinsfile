@@ -1,36 +1,28 @@
 pipeline {
-environment {
-registry = "jackcharles13/dndproject"
-registryCredential = 'dockerhub_id'
-dockerImage = ''
-}
-agent any
-stages {
-stage('Cloning our Git') {
-steps {
-git 'https://github.com/mrjackcharles/dnd-character-gen.git'
-}
-}
-stage('Building our image') {
-steps{
-script {
-dockerImage = docker.build registry + ":$BUILD_NUMBER"
-}
-}
-}
-stage('Deploy our image') {
-steps{
-script {
-docker.withRegistry( '', registryCredential ) {
-dockerImage.push()
-}
-}
-}
-}
-stage('Cleaning up') {
-steps{
-sh "docker rmi $registry:$BUILD_NUMBER"
-}
-}
-}
+    environment {
+        registry = "jackcharles13/dndproject"
+        registryCredential = 'dockerhub_id'
+        dockerImage = ''
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub_id')
+        }
+
+    agent any
+    stages {
+      stage('Building our image') {
+        steps{
+            sh 'docker-compose up -d'
+                }
+           }
+
+      stage('Deploy our image') {
+        steps{
+             sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+             sh 'docker push jackcharles13/dndproject:frontend'
+             sh 'docker push jackcharles13/dndproject:service1'
+             sh 'docker push jackcharles13/dndproject:service2'
+             sh 'docker push jackcharles13/dndproject:backend'
+             sh 'docker push jackcharles13/dndproject:mysql'
+                }
+           }
+      }
 }
