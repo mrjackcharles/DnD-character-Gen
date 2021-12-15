@@ -14,7 +14,7 @@ pipeline {
                 }
            }
 
-      stage('Deploying image') {
+      stage('Deploying image to Dockerhub') {
         steps{
              sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
              sh 'docker push jackcharles13/dndproject:frontend'
