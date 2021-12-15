@@ -8,13 +8,13 @@ pipeline {
 
     agent any
     stages {
-      stage('Building our image') {
+      stage('Building image') {
         steps{
             sh 'docker-compose up -d'
                 }
            }
 
-      stage('Deploy our image') {
+      stage('Deploying image') {
         steps{
              sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
              sh 'docker push jackcharles13/dndproject:frontend'
